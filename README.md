@@ -1,45 +1,67 @@
 # AEW 0.2.1 — Artificial Economic World
 
-AEW is an open-source artificial-life experiment for studying evolution under artificial economic rules.
+AEW is a small open-source artificial-life sandbox for studying evolution under artificial economic rules. It is a simulation only: no real money, broker APIs, credentials, network penetration or autonomous access to external systems.
 
-The model runs entirely inside a closed virtual world. Agents trade simulated assets, compete for limited resources, reproduce, inherit and mutate strategies, and can go bankrupt. The purpose is scientific observation of emergent economic and evolutionary dynamics—not real-world trading or autonomous access to external systems.
+## What v0.2.1 actually implements
 
-## Core features
+- seeded, deterministic simulation runs
+- virtual cash, one virtual resource and one virtual market price
+- pairwise agent-to-agent resource trading
+- resource scarcity, consumption and harvesting
+- inheritable/mutating `risk` strategy parameter
+- reproduction with parent/generation lineage fields
+- bankruptcy/death when virtual cash is exhausted
+- JSON snapshots with per-tick history
+- PNG dashboard plotting living population and virtual price
+- checked-in SVG dashboard wireframe/mockup
 
-- multiple virtual markets/assets
-- agent-to-agent trading
-- limited resources and scarcity
-- inherited and mutating strategy parameters
-- reproduction, genealogy and natural selection
-- bankruptcy when virtual wealth is exhausted
-- deterministic seeded experiments
-- snapshots for analysis and dashboards
-- no real money, brokerage accounts, credentials or external-system access
+This release is intentionally smaller than the longer-term AEW concept. Multiple independent assets, richer strategy code mutation and an interactive real-time web dashboard are not implemented in v0.2.1.
 
-## Quick start
+## Requirements
 
 Python 3.10+.
 
 ```bash
-pip install -r requirements.txt
-python -m aew run --ticks 1000 --agents 100 --seed 42 --out aew_snapshot.json
-python -m aew dashboard aew_snapshot.json
+python -m pip install -r requirements.txt
 ```
+
+For tests:
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
+## Run a simulation
+
+```bash
+python -m aew run --ticks 1000 --agents 100 --seed 42 --out aew_snapshot.json
+```
+
+## Generate the dashboard
+
+```bash
+python -m aew dashboard aew_snapshot.json --out aew_dashboard.png
+```
+
+The checked-in design mockup is `dashboard/mockups/dashboard-wireframe.svg`.
+
+## Tests
+
+```bash
+python -m pytest -q
+```
+
+The release smoke test used the same public CLI with 50 ticks, 30 agents and seed 42, then generated a PNG dashboard from the resulting JSON snapshot.
 
 ## Research idea
 
-A useful shorthand is:
+A useful shorthand is **Evochora: evolution under artificial physics; AEW: evolution under artificial economics.** AEW asks what strategies and lineages emerge when simulated agents face scarcity, exchange, inheritance, mutation and bankruptcy.
 
-**Evochora: evolution under artificial physics.**  
-**AEW: evolution under artificial economics.**
-
-AEW asks which strategies, cooperation patterns, market structures and lineages emerge when artificial agents face scarcity, competition, inheritance and mutation.
-
-See `docs/SCIENTIFIC_OVERVIEW.md`, `docs/ARCHITECTURE.md` and `docs/EVOCHORA_LETTER.md`.
+See `docs/EVOCHORA_LETTER.md` for the collaboration outreach draft.
 
 ## Safety boundary
 
-AEW is deliberately sandboxed. It does not evade controls, penetrate systems, self-propagate across computers, move real funds, or execute real financial trades.
+AEW is deliberately sandboxed. It does not evade controls, penetrate systems, self-propagate across computers, move real funds or execute real financial trades.
 
 ## License
 
