@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aew"
-version = "0.2.1"
-description = "Artificial Economic World: a safe closed artificial-life economic simulation"
+version = "0.3.0.dev0"
+description = "AEW: Open-Ended Economic Evolution Laboratory"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "Morten Vågan"}]

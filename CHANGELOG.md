@@ -1,4 +1,12 @@
 # Changelog
 
-## 0.2.1 — 2026-10-04
-Public research package for the closed AEW simulation: multi-asset virtual economy; scarcity and agent-to-agent trade; inherited/mutating strategies; reproduction, genealogy, selection and bankruptcy; JSON snapshots and lightweight dashboard; scientific and collaboration documentation.
+## 0.3.0.dev0
+- multi-asset economic ecology: food, energy, ore and data
+- finite replenishing resource pools and endogenous virtual prices
+- inheritable/mutating strategy genome with specialization
+- lineage, generations, selection and evolutionary diversity metrics
+- canonicalized the simulation engine; model.py is now a compatibility import
+- expanded dashboard and tests
+
+## 0.2.1
+Initial runnable closed-world AEW release.
